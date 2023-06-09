@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import ImageItem from "./ImageItem";
 import ListSkeleton from "./ListSkeleton";
 import useInView from "@/hooks/useInView";
+import { useAppStore } from "@/store/useAppStore";
 
 const UNSPLASH = process.env.unsplash;
 
@@ -25,8 +26,8 @@ const fetchPhotos = async (page: number, query: string) => {
 };
 
 const ImageContainer = () => {
-  const query = "";
-  const [ref, inView] = useInView({ rootMargin: "100px" });
+  const { searchQuery } = useAppStore()
+  const [ref, inView] = useInView({ rootMargin: "200px" });
 
   const {
     fetchNextPage,
@@ -37,8 +38,8 @@ const ImageContainer = () => {
     isError,
     data: images,
   } = useInfiniteQuery(
-    ["images", query],
-    ({ pageParam = 1 }) => fetchPhotos(pageParam, query),
+    ["images", searchQuery],
+    ({ pageParam = 1 }) => fetchPhotos(pageParam, searchQuery),
     {
       getNextPageParam: (lastPage, allPages) => {
         const nextPage = allPages.length + 1;

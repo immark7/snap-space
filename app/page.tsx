@@ -1,3 +1,4 @@
+import Search from "@/components/Search";
 import ImageContainer from "@/components/image/ImageContainer";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -20,6 +21,7 @@ export default function Home() {
             I m building a web app with Next.js 13 and open-sourcing it.
           </p>
         </div>
+        <Search/>
         <ImageContainer/>
       </section>
     </>
