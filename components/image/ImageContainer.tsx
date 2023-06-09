@@ -4,6 +4,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import ImageItem from "./ImageItem";
 import ListSkeleton from "./ListSkeleton";
+import useInView from "@/hooks/useInView";
 
 const UNSPLASH = process.env.unsplash;
 
@@ -25,9 +26,11 @@ const fetchPhotos = async (page: number, query: string) => {
 
 const ImageContainer = () => {
   const query = "";
+  const [ref, inView] = useInView({ rootMargin: "100px" });
 
   const {
     fetchNextPage,
+    hasNextPage,
     isLoading,
     isFetching,
     isFetchingNextPage,
@@ -45,6 +48,11 @@ const ImageContainer = () => {
     }
   );
 
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, fetchNextPage, hasNextPage]);
 
   const renderImages = () => {
     if (isLoading) return <ListSkeleton />;
@@ -62,6 +70,7 @@ const ImageContainer = () => {
       <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4 mb-10">
         {renderImages()}
       </section>
+      <div ref={ref} />
     </div>
   );
 };
