@@ -17,7 +17,7 @@ export default function Search() {
   return (
     <form
       onSubmit={handleSearch}
-      className="flex w-full max-w-sm items-center space-x-2 mx-auto mb-8"
+      className="flex w-full max-w-sm items-center space-x-2 mx-auto mb-12 mt-6"
     >
       <Input
         onChange={(e) => setSearchText(e.target.value)}

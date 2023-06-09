@@ -27,7 +27,7 @@ const fetchPhotos = async (page: number, query: string) => {
 
 const ImageContainer = () => {
   const { searchQuery } = useAppStore();
-  const [ref, inView] = useInView();
+  const [ref, inView] = useInView({rootMargin: '200px'});
 
   const {
     fetchNextPage,
@@ -71,10 +71,7 @@ const ImageContainer = () => {
       <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4 mb-10">
         {renderImages()}
       </section>
-      <div ref={ref} />
-      <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 md:gap-8 gap-4 mb-10">
-        {hasNextPage && images?.pages[0].length && <ListSkeleton />}
-      </section>
+      <div ref={ref}/>
     </div>
   );
 };
