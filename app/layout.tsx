@@ -19,12 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <section className="container mx-auto py-2 px-4">
-          <Providers>
-            <NavBar />
-            {children}
-          </Providers>
-        </section>
+        <Providers>
+          <NavBar />
+          <main className="container mx-auto py-2 px-4">{children}</main>
+        </Providers>
       </body>
     </html>
   );

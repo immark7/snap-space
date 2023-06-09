@@ -5,7 +5,7 @@ import ImageContainer from "@/components/image/ImageContainer";
 export default function Home() {
   return (
     <>
-      <section className="pb-8 pt-6 md:pb-12 md:pt-10 lg:py-20">
+      <section className="pb-8 pt-6 md:pb-12 md:pt-8 lg:py-10">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
           <a
             target="_blank"
