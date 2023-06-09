@@ -1,3 +1,4 @@
+import ImageContainer from "@/components/image/ImageContainer";
 import { buttonVariants } from "@/components/ui/button";
 
 export default function Home() {
@@ -8,9 +9,7 @@ export default function Home() {
           <a
             target="_blank"
             href="https://github.com/immark7/snap-space"
-            className={`rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium ${buttonVariants(
-              { variant: "ghost", size: "sm" }
-            )}`}
+            className={`rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium `}
           >
             Follow along on Github
           </a>
@@ -21,6 +20,7 @@ export default function Home() {
             I m building a web app with Next.js 13 and open-sourcing it.
           </p>
         </div>
+        <ImageContainer/>
       </section>
     </>
   );
