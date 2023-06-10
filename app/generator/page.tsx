@@ -1,9 +1,16 @@
-import React from 'react'
+import GeneratorAi from "@/components/GeneratorAi";
+import React from "react";
 
 const page = () => {
   return (
-    <div>Work in progress</div>
-  )
-}
+    <section className="container flex max-w-[64rem] flex-col gap-4 py-8">
+      <h1 className="text-4xl mb-2">
+        Generate an imaginative image through DALL-E AI.
+      </h1>
 
-export default page
+      <GeneratorAi />
+    </section>
+  );
+};
+
+export default page;
