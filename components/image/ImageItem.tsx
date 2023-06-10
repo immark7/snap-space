@@ -2,15 +2,14 @@ import React, { FunctionComponent } from "react";
 import BlurImage from "./BlurImage";
 
 interface Props {
-  id: number,
   alt_description: string
-  urls: any
+  url: string
 }
 
-const ImageItem: FunctionComponent<Props> = ({id, alt_description, urls}) => {
+const ImageItem: FunctionComponent<Props> = ({alt_description, url}) => {
   return (
-    <div key={id} className="flex flex-col gap-4 relative group">
-      <BlurImage alt={alt_description} src={urls.small} />
+    <div className="flex flex-col gap-4 relative group">
+      <BlurImage alt={alt_description} src={url} />
     </div>
   );
 };

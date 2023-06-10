@@ -1,7 +1,6 @@
+"use client"
 import Image from "next/image";
 import { FunctionComponent, useState } from "react";
-import { CopyIcon } from "lucide-react";
-import { Button } from "../ui/button";
 
 interface Props {
   src: string;
@@ -11,7 +10,6 @@ interface Props {
 
 const BlurImage: FunctionComponent<Props> = ({ src, alt, rounded }) => {
   const [isLoading, setLoading] = useState(true);
-
   return (
     <div className="relative aspect-square bg-muted rounded-lg overflow-hidden">
       <Image

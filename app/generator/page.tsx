@@ -1,4 +1,5 @@
-import GeneratorAi from "@/components/GeneratorAi";
+import AiGenerator from "@/components/AiGenerator";
+import AiImageContainer from "@/components/AiImageContainer";
 import React from "react";
 
 const page = () => {
@@ -7,8 +8,8 @@ const page = () => {
       <h1 className="text-4xl mb-2">
         Generate an imaginative image through DALL-E AI.
       </h1>
-
-      <GeneratorAi />
+      <AiGenerator />
+      <AiImageContainer />
     </section>
   );
 };
