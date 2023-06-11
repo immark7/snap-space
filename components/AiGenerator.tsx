@@ -5,23 +5,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { getRandomPrompt } from "@/lib/func";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
-const generateImage = async (prompt: string) => {
-  const response = await fetch("http://localhost:8080/api/v1/dalle", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ prompt }),
-  });
-
-  if (!response.ok) {
-    throw new Error("Failed to generate image");
-  }
-
-  const { photo } = await response.json();
-  return `data:image/jpeg;base64,${photo}`;
-};
+import { generateImage } from "@/lib/api";
 
 const AiGenerator = () => {
   const queryClient = useQueryClient();
@@ -82,7 +66,9 @@ const AiGenerator = () => {
           placeholder="A painting of a phoenix rising out of flames against a black background"
           value={prompt}
         />
-        <Button type="submit">{isLoading ? "Loading" : "Generate"}</Button>
+        <Button type="submit" disabled={isLoading}>
+          {isLoading ? "Loading..." : "Generate"}
+        </Button>
       </form>
     </div>
   );

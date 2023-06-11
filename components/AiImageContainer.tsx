@@ -3,21 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import ImageItem from "./image/ImageItem";
 import ListSkeleton from "./image/ListSkeleton";
-
-const fetchPosts = async () => {
-  const response = await fetch("http://localhost:8080/api/v1/post", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error("Fetch failed");
-  }
-
-  const { data } = await response.json();
-  return data.reverse();
-};
+import { fetchPosts } from "@/lib/api";
 
 const AiImageContainer = () => {
   const {
